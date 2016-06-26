@@ -1,320 +1,418 @@
 /* To Dos */
+
+
 /* add a thermometer slider */
+
+
 /* check on weather description return - switch to console.log*/
-/* look for better weather icons */
+
+
+/*@import "compass/css3";*/
+
+.sunmoon {
+    position: relative;
+}
+.sunmoon> div {
+    margin-left: 10px;
+}
+.sun-times .sun-path {
+    /*margin-left: 25px;*/
+    /*width: 170px;*/
+    height: 900px;
+    overflow: hidden;
+    border: 1px dashed #999;
+    border-radius: 50%;
+}
+
+/*.sun-times .sun-symbol-path {
+    position: absolute;
+    color: yellow;
+    text-shadow: 0 0 5px black;
+    height: 800px;
+    -webkit-transition: -webkit-transform 2s linear;
+    -webkit-transform-origin: 50% 100%;
+    -webkit-transform: rotateZ(-75deg);
+    left: 305px;
+    bottom: 0;
+}*/
+
+.sun-times .sun-symbol-path .symbol {
+    position: relative;
+    font-size: 45px;
+    top: -8px;
+}
+/*.sun-times .sun-animation {
+    width: 0px;
+    height: 150px;
+    background-color: rgba(255, 255, 0, 0.0);
+    -webkit-transition: width 2s linear;
+    transition: width 2s linear;
+}*/
+.sun-times .sun-symbol-path {
+    position: absolute;
+    color: yellow;
+    text-shadow: 0 0 5px black;
+    /*height: 800px;*/
+    left: auto;
+    top: 143px;
+    -webkit-animation: myOrbit 6s linear infinite;
+    -moz-animation: myOrbit 6s linear infinite;
+    -o-animation: myOrbit 6s linear infinite;
+    animation: myOrbit 6s linear infinite;
+}
+@-webkit-keyframes myOrbit {
+    0% {
+        -webkit-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        -webkit-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        -webkit-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        -webkit-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+@-moz-keyframes myOrbit {
+    0% {
+        -moz-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        -moz-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        -moz-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        -moz-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        -moz-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+@-o-keyframes myOrbit {
+    0% {
+        -o-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        -o-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        -o-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        -o-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        -o-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+@keyframes myOrbit {
+    0% {
+        transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+
 /* change units based on location */
 
-#lat,
-#lon {
-  display: none;
-}
 
+/*.sun {
+    position: absolute;
+    background: yellow;
+    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+    display: block;
+    width: 100px;
+    height: 100px;
+}*/
+
+#lat, #lon {
+    display: none;
+}
 h1 {
-  font-family: 'Nixie One', cursive;
-  text-transform: uppercase;
-  font-size: 4em;
-  color: #000;
+    font-family: 'Nixie One', cursive;
+    text-transform: uppercase;
+    font-size: 4em;
+    color: #000;
 }
-
 h2 {
-  font-family: 'Hind Vadodara', sans-serif;
-  text-transform: none;
-  font-size: 4em;
-  color: #000;
+    font-family: 'Hind Vadodara', sans-serif;
+    text-transform: none;
+    font-size: 4em;
+    color: #000;
 }
-
-a,
-a:focus,
-a:hover {
-  color: #000;
-  text-decoration: none;
+a, a:focus, a:hover {
+    color: #000;
+    text-decoration: none;
 }
-
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #000;
-  text-shadow: none;
-  opacity: 1.0;
-  margin: 10px;
-  text-transform: uppercase;
-  text-decoration: bold;
-  background-color: #fff;
-  border: 1px solid #fff;
+.btn-default, .btn-default:hover, .btn-default:focus {
+    color: #000;
+    text-shadow: none;
+    opacity: 1.0;
+    margin: 10px;
+    text-transform: uppercase;
+    text-decoration: bold;
+    background-color: #fff;
+    border: 1px solid #fff;
 }
-
-html,
+html, body {
+    height: 100%;
+    background-color: #fff rgba(0, 0, 0, .1);
+    font-family: 'Nixie One', cursive;
+}
 body {
-  height: 100%;
-  background-color: #333;
-  font-family: 'Nixie One', cursive;
+    /*color: #fff;*/
+    text-align: center;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
 }
-
-body {
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
-}
-
 .site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%;
-  top: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+    top: 0;
 }
-
 .site-wrapper-inner {
-  display: table-cell;
-  vertical-align: top;
+    display: table-cell;
+    vertical-align: top;
 }
-
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 }
-
 .inner {
-  margin: -200px 25px;
-  top: 0;
+    margin: -200px 25px;
+    top: 0;
 }
-
 .masthead-brand {
-  margin: 10px 40%;
+    margin: 10px 40%;
 }
-
-.masthead-nav > li {
-  display: inline-block;
+.masthead {
+    margin-left: auto;
+    margin-right: auto;
 }
-
-.masthead-nav > li + li {
-  margin-left: 20px;
+.masthead-nav> li {
+    display: inline-block;
 }
-
-.masthead-nav > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  /* IE8 proofing */
-  
-  color: rgba(255, 255, 255, .75);
-  border-bottom: 2px solid transparent;
+.masthead-nav> li+ li {
+    margin-left: 20px;
 }
-
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-  background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255, 255, 255, .25);
+.masthead-nav> li> a {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    /* IE8 proofing */
+    color: rgba(255, 255, 255, .75);
+    border-bottom: 2px solid transparent;
 }
-
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
-  color: #fff;
-  border-bottom-color: #fff;
+.masthead-nav> li> a:hover, .masthead-nav> li> a:focus {
+    background-color: transparent;
+    border-bottom-color: #a9a9a9;
+    border-bottom-color: rgba(255, 255, 255, .25);
 }
-
+.masthead-nav> .active> a, .masthead-nav> .active> a:hover, .masthead-nav> .active> a:focus {
+    color: #fff;
+    border-bottom-color: #fff;
+}
 .cover {
-  padding: 0 20px;
-  margin: 35px 0;
+    padding: 0 20px;
+    margin: 35px 0;
 }
-
 .bk-cover {
-  background-color: #f5f5f5;
-  opacity: .75;
-  border-radius: 20px;
-  padding: 10px 0;
+    background-color: #f5f5f5;
+    opacity: .75;
+    border-radius: 20px;
+    padding: 10px 0;
 }
-
 .cover .btn-lg {
-  padding: 20px 20px;
-  font-weight: bold;
+    padding: 20px 20px;
+    font-weight: bold;
 }
-
-#icon,
-.temp {
-  display: inline-block;
-  font-size: 2em;
+#icon, .temp {
+    display: inline-block;
+    font-size: 2em;
 }
-
 #icon {
-  height: 20px;
-  position: relative;
+    height: 20px;
+    position: relative;
 }
-
 .mastfoot {
-  color: #999;
-  color: rgba(255, 255, 255, .5);
+    color: #999;
+    color: rgba(255, 255, 255, .5);
+}
+@media (min-width: 992px) {
+    .masthead, .mastfoot, .cover-container {
+        width: 800px;
+    }
 }
 
-@media (min-width: 992px) {
-  .masthead, .mastfoot, .cover-container {
-    width: 800px;
-  }
-}
 /*Clouds*/
 
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
-
 body {
-  /*To hide the horizontal scroller appearing during the animation*/
-  
-  overflow: hidden;
+    /*To hide the horizontal scroller appearing during the animation*/
+    overflow: hidden;
+}
+#clouds {
+    padding: 45% 0 45% 0;
+    height: 100%;
+    background: #c9dbe9;
+    background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -ms-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    background: -o-linear-gradient(top, #c9dbe9 0%, #fff 100%);
 }
 
-#clouds {
-  padding: 100px 0;
-  background: #c9dbe9;
-  background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-  background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
-  background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-  background: -ms-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-  background: -o-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-}
 /*Time to finalise the cloud shape*/
 
 .cloud {
-  width: 200px;
-  height: 60px;
-  background: #fff;
-  -moz-border-radius: 200px;
-  -ms-border-radius: 200px;
-  -o-border-radius: 200px;
-  -webkit-border-radius: 200px;
-  border-radius: 200px;
-  position: relative;
-  z-index: -10;
+    width: 200px;
+    height: 60px;
+    background: #fff;
+    -moz-border-radius: 200px;
+    -ms-border-radius: 200px;
+    -o-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    border-radius: 200px;
+    position: relative;
+    z-index: -10;
+}
+.cloud:before, .cloud:after {
+    content: '';
+    position: absolute;
+    background: #fff;
+    width: 100px;
+    height: 80px;
+    top: -15px;
+    left: 10px;
+    -moz-border-radius: 100px;
+    -o-border-radius: 100px;
+    -webkit-border-radius: 100px;
+    border-radius: 100px;
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg);
+}
+.cloud:after {
+    width: 120px;
+    height: 120px;
+    top: -55px;
+    left: auto;
+    right: 15px;
 }
 
-.cloud:before,
-.cloud:after {
-  content: '';
-  position: absolute;
-  background: #fff;
-  width: 100px;
-  height: 80px;
-  top: -15px;
-  left: 10px;
-  -moz-border-radius: 100px;
-  -o-border-radius: 100px;
-  -webkit-border-radius: 100px;
-  border-radius: 100px;
-  -webkit-transform: rotate(30deg);
-  -moz-transform: rotate(30deg);
-  -ms-transform: rotate(30deg);
-  -o-transform: rotate(30deg);
-  transform: rotate(30deg);
-}
-
-.cloud:after {
-  width: 120px;
-  height: 120px;
-  top: -55px;
-  left: auto;
-  right: 15px;
-}
 /*Time to animate*/
 
 .x1 {
-  -webkit-animation: moveclouds 15s linear infinite;
-  -moz-animation: moveclouds 15s linear infinite;
-  -o-animation: moveclouds 15s linear infinite;
+    -webkit-animation: moveclouds 15s linear infinite;
+    -moz-animation: moveclouds 15s linear infinite;
+    -o-animation: moveclouds 15s linear infinite;
 }
+
 /*variable speed, opacity, and position of clouds for realistic effect*/
 
 .x2 {
-  left: 200px;
-  -webkit-transform: scale(0.6);
-  -moz-transform: scale(0.6);
-  -ms-transform: scale(0.6);
-  -o-transform: scale(0.6);
-  transform: scale(0.6);
-  opacity: 0.6;
-  /*opacity proportional to the size*/
-  /*Speed will also be proportional to the size and opacity*/
-  /*More the speed. Less the time in 's' = seconds*/
-  
-  -webkit-animation: moveclouds 25s linear infinite;
-  -moz-animation: moveclouds 25s linear infinite;
-  -o-animation: moveclouds 25s linear infinite;
+    left: 200px;
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    -ms-transform: scale(0.6);
+    -o-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.6;
+    /*opacity proportional to the size*/
+    /*Speed will also be proportional to the size and opacity*/
+    /*More the speed. Less the time in 's' = seconds*/
+    -webkit-animation: moveclouds 25s linear infinite;
+    -moz-animation: moveclouds 25s linear infinite;
+    -o-animation: moveclouds 25s linear infinite;
 }
-
 .x3 {
-  left: -250px;
-  top: -200px;
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  transform: scale(0.8);
-  opacity: 0.8;
-  /*opacity proportional to the size*/
-  
-  -webkit-animation: moveclouds 20s linear infinite;
-  -moz-animation: moveclouds 20s linear infinite;
-  -o-animation: moveclouds 20s linear infinite;
+    left: -250px;
+    top: -200px;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+    /*opacity proportional to the size*/
+    -webkit-animation: moveclouds 20s linear infinite;
+    -moz-animation: moveclouds 20s linear infinite;
+    -o-animation: moveclouds 20s linear infinite;
 }
-
 .x4 {
-  left: 470px;
-  top: -250px;
-  -webkit-transform: scale(0.75);
-  -moz-transform: scale(0.75);
-  -ms-transform: scale(0.75);
-  -o-transform: scale(0.75);
-  transform: scale(0.75);
-  opacity: 0.75;
-  /*opacity proportional to the size*/
-  
-  -webkit-animation: moveclouds 18s linear infinite;
-  -moz-animation: moveclouds 18s linear infinite;
-  -o-animation: moveclouds 18s linear infinite;
+    left: 470px;
+    top: -250px;
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -o-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.75;
+    /*opacity proportional to the size*/
+    -webkit-animation: moveclouds 18s linear infinite;
+    -moz-animation: moveclouds 18s linear infinite;
+    -o-animation: moveclouds 18s linear infinite;
 }
-
 .x5 {
-  left: -150px;
-  top: -150px;
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  -ms-transform: scale(0.8);
-  -o-transform: scale(0.8);
-  transform: scale(0.8);
-  opacity: 0.8;
-  /*opacity proportional to the size*/
-  
-  -webkit-animation: moveclouds 20s linear infinite;
-  -moz-animation: moveclouds 20s linear infinite;
-  -o-animation: moveclouds 20s linear infinite;
+    left: -150px;
+    top: -150px;
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8;
+    /*opacity proportional to the size*/
+    -webkit-animation: moveclouds 20s linear infinite;
+    -moz-animation: moveclouds 20s linear infinite;
+    -o-animation: moveclouds 20s linear infinite;
 }
-
 @-webkit-keyframes moveclouds {
-  0% {
-    margin-left: 1000px;
-  }
-  100% {
-    margin-left: -1000px;
-  }
+    0% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: -1000px;
+    }
 }
-
 @-moz-keyframes moveclouds {
-  0% {
-    margin-left: 1000px;
-  }
-  100% {
-    margin-left: -1000px;
-  }
+    0% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: -1000px;
+    }
 }
-
 @-o-keyframes moveclouds {
-  0% {
-    margin-left: 1000px;
-  }
-  100% {
-    margin-left: -1000px;
-  }
+    0% {
+        margin-left: 1000px;
+    }
+    100% {
+        margin-left: -1000px;
+    }
 }

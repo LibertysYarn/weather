@@ -1,147 +1,9 @@
-/* To Dos */
-
-
-/* add a thermometer slider */
-
-
-/* check on weather description return - switch to console.log*/
-
-
-/*@import "compass/css3";*/
-
-.sunmoon {
-    position: relative;
-}
-.sunmoon> div {
-    margin-left: 10px;
-}
-.sun-times .sun-path {
-    /*margin-left: 25px;*/
-    /*width: 170px;*/
-    height: 900px;
-    overflow: hidden;
-    border: 1px dashed #999;
-    border-radius: 50%;
-}
-
-/*.sun-times .sun-symbol-path {
-    position: absolute;
-    color: yellow;
-    text-shadow: 0 0 5px black;
-    height: 800px;
-    -webkit-transition: -webkit-transform 2s linear;
-    -webkit-transform-origin: 50% 100%;
-    -webkit-transform: rotateZ(-75deg);
-    left: 305px;
-    bottom: 0;
-}*/
-
-.sun-times .sun-symbol-path .symbol {
-    position: relative;
-    font-size: 45px;
-    top: -8px;
-}
-/*.sun-times .sun-animation {
-    width: 0px;
-    height: 150px;
-    background-color: rgba(255, 255, 0, 0.0);
-    -webkit-transition: width 2s linear;
-    transition: width 2s linear;
-}*/
-.sun-times .sun-symbol-path {
-    position: absolute;
-    color: yellow;
-    text-shadow: 0 0 5px black;
-    /*height: 800px;*/
-    left: auto;
-    top: 143px;
-    -webkit-animation: myOrbit 6s linear infinite;
-    -moz-animation: myOrbit 6s linear infinite;
-    -o-animation: myOrbit 6s linear infinite;
-    animation: myOrbit 6s linear infinite;
-}
-@-webkit-keyframes myOrbit {
-    0% {
-        -webkit-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
-    }
-    25% {
-        -webkit-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
-    }
-    50% {
-        -webkit-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
-    }
-    75% {
-        -webkit-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
-    }
-    100% {
-        -webkit-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
-    }
-}
-@-moz-keyframes myOrbit {
-    0% {
-        -moz-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
-    }
-    25% {
-        -moz-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
-    }
-    50% {
-        -moz-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
-    }
-    75% {
-        -moz-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
-    }
-    100% {
-        -moz-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
-    }
-}
-@-o-keyframes myOrbit {
-    0% {
-        -o-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
-    }
-    25% {
-        -o-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
-    }
-    50% {
-        -o-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
-    }
-    75% {
-        -o-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
-    }
-    100% {
-        -o-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
-    }
-}
-@keyframes myOrbit {
-    0% {
-        transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
-    }
-    25% {
-        transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
-    }
-    50% {
-        transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
-    }
-    75% {
-        transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
-    }
-    100% {
-        transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
-    }
-}
-
-/* change units based on location */
-
-
-/*.sun {
-    position: absolute;
-    background: yellow;
-    border-radius: 50%;
-    top: 0px;
-    left: 0px;
-    display: block;
-    width: 100px;
-    height: 100px;
-}*/
+/* TODO add a thermometer slider */
+/* TODO check on weather description return - switch to console.log*/
+/* TODO @import "compass/css3";*/
+/* TODO change units based on location */
+/* TODO finish solar path */
+/* IDEA lunar path */
 
 #lat, #lon {
     display: none;
@@ -275,7 +137,7 @@ body {
     overflow: hidden;
 }
 #clouds {
-    padding: 45% 0 45% 0;
+    /*padding: 45% 0 45% 0;*/
     height: 100%;
     background: #c9dbe9;
     background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
@@ -297,7 +159,7 @@ body {
     -webkit-border-radius: 200px;
     border-radius: 200px;
     position: relative;
-    z-index: -10;
+    /*z-index: -10;*/
 }
 .cloud:before, .cloud:after {
     content: '';
@@ -416,3 +278,138 @@ body {
         margin-left: -1000px;
     }
 }
+
+/* Solar Path sytling*/
+
+.sunmoon {
+    position: relative;
+}
+.sunmoon> div {
+    margin-left: 10px;
+}
+.sun-times .sun-path {
+    /*margin-left: 25px;*/
+    /*width: 170px;*/
+    height: 900px;
+    overflow: hidden;
+    border: 1px dashed #999;
+    border-radius: 50%;
+}
+
+/*.sun-times .sun-symbol-path {
+    position: absolute;
+    color: yellow;
+    text-shadow: 0 0 5px black;
+    height: 800px;
+    -webkit-transition: -webkit-transform 2s linear;
+    -webkit-transform-origin: 50% 100%;
+    -webkit-transform: rotateZ(-75deg);
+    left: 305px;
+    bottom: 0;
+}*/
+
+.sun-times .sun-symbol-path .symbol {
+    position: relative;
+    font-size: 45px;
+    top: -8px;
+}
+
+/*.sun-times .sun-animation {
+    width: 0px;
+    height: 150px;
+    background-color: rgba(255, 255, 0, 0.0);
+    -webkit-transition: width 2s linear;
+    transition: width 2s linear;
+}*/
+
+.sun-times .sun-symbol-path {
+    position: absolute;
+    color: yellow;
+    text-shadow: 0 0 5px black;
+    /*height: 800px;*/
+    left: auto;
+    top: 143px;
+    -webkit-animation: myOrbit 6s linear infinite;
+    -moz-animation: myOrbit 6s linear infinite;
+    -o-animation: myOrbit 6s linear infinite;
+    animation: myOrbit 6s linear infinite;
+}
+@-webkit-keyframes myOrbit {
+    0% {
+        -webkit-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        -webkit-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        -webkit-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        -webkit-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        -webkit-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+@-moz-keyframes myOrbit {
+    0% {
+        -moz-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        -moz-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        -moz-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        -moz-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        -moz-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+@-o-keyframes myOrbit {
+    0% {
+        -o-transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        -o-transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        -o-transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        -o-transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        -o-transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+@keyframes myOrbit {
+    0% {
+        transform: rotate(0deg) translateX(5px) translateY(120px) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(90deg) translateX(5px) translateY(120px) rotate(-90deg) scale(.75);
+    }
+    50% {
+        transform: rotate(180deg) translateX(5px) translateY(120px) rotate(-180deg) scale(.60);
+    }
+    75% {
+        transform: rotate(270deg) translateX(5px) translateY(120px) rotate(-270deg) scale(.75);
+    }
+    100% {
+        transform: rotate(360deg) translateX(5px) translateY(120px) rotate(-360deg) scale(1);
+    }
+}
+
+/*.sun {
+position: absolute;
+background: yellow;
+border-radius: 50%;
+top: 0px;
+left: 0px;
+display: block;
+width: 100px;
+height: 100px;
+}*/

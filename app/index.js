@@ -1,5 +1,4 @@
-// $(document).ready(function () {
-// getLocation();
+//INITIATES ALL THE VARIABLES!
 let appId = 'f9ac58d42469c107ee28a3aba7afd53a',
 	address = $('#address'),
 	tempFid = $('#tempF'),
@@ -9,6 +8,7 @@ let appId = 'f9ac58d42469c107ee28a3aba7afd53a',
 	windId = $('#wind'),
   lat = '',
   lon = '',
+	clouds = 0;
 	iconTime= 'd',
 	sunrise = [],
 	sunset = [],
@@ -16,18 +16,8 @@ let appId = 'f9ac58d42469c107ee28a3aba7afd53a',
 	mins = new Date().getMinutes();
 
 
-
-// function getLocation() {
-// $.getJSON('http://ipinfo.io/8.8.8.8', function(data){
-//   console.log(data)
-// 	var latsplit = data.loc.split(',', 2);
-// 	var lat = latsplit[0];
-// 	var lon = latsplit[1];
-// })
-
+// users IP to grab latitdue and longitude - appends the UI to show city and state
 $.getJSON('http://ip-api.com/json', function (data) {
-	// var city = data.city,
-	// 	region = data.regionName,
 		lat = data.lat,
 		lon = data.lon;
     console.log(lat + ' , '+ lon);
@@ -38,35 +28,51 @@ $.getJSON('http://ip-api.com/json', function (data) {
 // }
 
 
+// translates wind direction degree to compass value - appends UI to show direction
 function degToCompass(num) {
 	var val = Math.floor((num / 22.5) + 0.5);
 	var arr = ['N', 'NNE', 'NE', 'ENE', 'E', 'ESE', 'SE', 'SSE', 'S', 'SSW', 'SW', 'WSW', 'W', 'WNW', 'NW', 'NNW'];
 	return arr[(val % 16)];
 }
 
+
+// uses location to get weather data from the OpenWeather API
 function getWeather(lat, lon) {
 	$.get(('http://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&appid=' + appId),
 
 		function (weather) {
 			var tempK = (weather.main.temp).toFixed(0);
-			var tempF = (((weather.main.temp - 273.15) * 9 / 5) + 32).toFixed(0);
-			var tempC = ((weather.main.temp) - 273.15).toFixed(0);
-			var iconOwf =  weather.weather[0].id + '-' + iconTime;
-			var wind = (weather.wind.speed * 1.94).toFixed(0);
-			// var degree = degToCompass(weather.wind.deg);
-			var clouds = (weather.clouds.all);
-			var sunR = (weather.sys.sunrise);
-			var sunS = (weather.sys.sunset);
-      console.log(clouds + '%', iconOwf);
-			cloudy(clouds);
-
-			iconId.append('<i class="owf owf-'+iconOwf+ '"></i>');
-			windId.text(degToCompass(weather.wind.deg) + ' ' + wind + ' knots');
-			tempFid.text(tempF + '\xB0' + 'F');
-			skyId.text(weather.weather[0].description);
-			tempCid.text(tempC + '\xB0' + 'C');
 			$('#tempK').text(tempK + '\xB0' + 'K');
 
+			// gets temp and converts from Kelvin to Farenheit - appends the UI
+			var tempF = (((weather.main.temp - 273.15) * 9 / 5) + 32).toFixed(0);
+			tempFid.text(tempF + '\xB0' + 'F');
+
+			// gets the temp and coverts from Kelvin to Celcius - appends the UI
+			var tempC = ((weather.main.temp) - 273.15).toFixed(0);
+			tempCid.text(tempC + '\xB0' + 'C');
+
+			// gets the wind speed and converts to knots - appends the UI with speed
+			var wind = (weather.wind.speed * 1.94).toFixed(0);
+			windId.text(degToCompass(weather.wind.deg) + ' ' + wind + ' knots');
+
+			// gets the local sunrise and sunset times in miliseconds
+			var sunR = (weather.sys.sunrise);
+			var sunS = (weather.sys.sunset);
+
+			// gets the level of clouds and calls cloudy() to appends the UI
+			clouds = (weather.clouds.all);
+			console.log(clouds + '%', iconOwf);
+			cloudy(clouds);
+
+			// gets the local weather code and appends the UI with corresponding day or night version icon
+			var iconOwf =  weather.weather[0].id + '-' + iconTime;
+			iconId.append('<i class="owf owf-'+iconOwf+ '"></i>');
+
+			// gets the weather description and appends the UI
+			skyId.text(weather.weather[0].description);
+
+// gets sunrise time for location and converts to hours and minutes for use in tillSun()
 			function sRTime() {
 				var sunrise1 = new Date(sunR * 1000);
 				var sH = sunrise1.getHours();
@@ -74,6 +80,7 @@ function getWeather(lat, lon) {
 				sunrise.push(sH, sM);
 			}
 
+// gets sunset time location and converts to hours and minutes for use in tillSun()
 			function sSTime() {
 				var sunset1 = new Date(sunS * 1000);
 				var sSH = sunset1.getHours();
@@ -81,6 +88,8 @@ function getWeather(lat, lon) {
 				sunset.push(sSH, sSM);
 			}
 
+
+// determines background color - closer to dawn/dusk sky is pink, night is dark
 			function tillSun() {
 				sRTime();
 				sSTime();
@@ -117,7 +126,6 @@ function getWeather(lat, lon) {
 						"background": "-o-linear-gradient(top, #493D6F 0%, #333 100%)",
 						"background": "-ms-linear-gradient(top, #493D6F 0%, #333 100%)"
 					});
-					/* $('body').css({ "background": "rgba(73, 61, 111, 0.1)" });*/
 				}
 			}
 			tillSun();
@@ -125,6 +133,8 @@ function getWeather(lat, lon) {
 
 }
 
+
+// Clouds behavior based on percent cloudiness from OpenWeather API
 function cloudy(clouds) {
 	var $cloudNode = $('#clouds');
 	var $cloudNode1 = $('.x1');
@@ -159,6 +169,7 @@ function cloudy(clouds) {
 	}
 }
 
+// working on solar path
 // sunLoc(hours, mins);
 //
 // function sunLoc(hours, mins) {
@@ -174,13 +185,10 @@ function cloudy(clouds) {
 //     });
 //     setTimeout(function(){ sunLoc(hours, mins); }, 10000);
 // }
+		//
+    // $('.sunmoon .sun-animation').css('width', '70%');
+    // $('.sun-symbol-path').css('-webkit-transform', 'rotateZ(27deg)');
 
-
-
-
-    $('.sunmoon .sun-animation').css('width', '70%');
-    $('.sun-symbol-path').css('-webkit-transform', 'rotateZ(27deg)');
-        
 
 
 
